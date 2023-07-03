@@ -1,0 +1,70 @@
+﻿@model İnfotechProje.View_Model.ListViewModel
+@{
+    ViewBag.Title = "Store";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="food_section layout_padding-bottom">
+    <div class="container">
+        <div class="heading_container heading_center">
+            <h2>
+                Our Menu
+            </h2>
+        </div>
+
+        <ul class="filters_menu">
+            <li class="nav-item me-2">
+                <a class="btn btn-outline-primary border-2" href="/Store/Browse?genre=All">All</a>
+            </li>
+            <li class="nav-item me-2">
+                <a class="btn btn-outline-primary border-2" href="/Store/Browse?genre=Hamburger">Hamburger</a>
+            </li>
+            <li class="nav-item me-2">
+                <a class="btn btn-outline-primary border-2" href="/Store/Browse?genre=Pizza">Pizza</a>
+            </li>
+            <li class="nav-item me-2">
+                <a class="btn btn-outline-primary border-2" href="/Store/Browse?genre=Pasta">Pasta</a>
+            </li>
+            <li class="nav-item me-0">
+                <a class="btn btn-outline-primary border-2" href="/Store/Browse?genre=Fries">Fries</a>
+            </li>
+        </ul>
+
+        <div class="filters-content">
+            <div class="row grid">
+                @foreach (var item in Model.ProductList)
+                {
+                    <div class="col-sm-6 col-lg-4 all pizza">
+                        <div class="box">
+                            <div>
+                                <div class="img-box">
+                                    <img src="@item.ProductArtUrl" alt="">
+                                </div>
+                                <div class="detail-box">
+                                    <h5>
+                                        @item.Title
+                                    </h5>
+                                    <p>
+                                        Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
+                                    </p>
+                                    <div class="options">
+                                        <h6>
+                                            @item.Price
+                                        </h6>
+                                        <a href="/Store/Details/@item.ProductId">
+                                            Details
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+        <div class="btn-box">
+            <a class="nav-item nav-link" asp-action="Index" asp-controller="Store">View More</a>
+            </a>
+        </div>
+    </div>
+</section>

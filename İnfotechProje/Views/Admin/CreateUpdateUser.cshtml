@@ -1,0 +1,76 @@
+﻿@model İnfotechProje.Models.Users
+@{
+    ViewData["Title"] = "CreateUser";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <!-- Horizontal Form -->
+        <div class="box box-info">
+            <div class="box-header with-border">
+                <h3 class="box-title">Create &Aacute; Update User</h3>
+            </div><!-- /.box-header -->
+            <!-- form start -->
+            <form class="form-horizontal" action="/Admin/CreateUpdateUser" method="post" enctype="multipart/form-data">
+                <input type="hidden" asp-for="Id" />
+                <div class="box-body">
+                    <div class="form-group">
+                        <label for="inputEmail3" class="col-sm-2 control-label">Name</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" asp-for="Name" name="Name" placeholder="Name">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPassword3" class="col-sm-2 control-label">Surname</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" asp-for="Surname" name="Surname" placeholder="Surname">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPassword3" class="col-sm-2 control-label">Username</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" asp-for="Username" name="Username" placeholder="Username">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPassword3" class="col-sm-2 control-label">Email</label>
+                        <div class="col-sm-10">
+                            <input type="email" class="form-control" asp-for="Email" name="Email" placeholder="Email">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+                        <div class="col-sm-10">
+                            <input type="password" class="form-control" asp-for="Password" name="Password" placeholder="Password">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPassword3" class="col-sm-2 control-label">RePassword</label>
+                        <div class="col-sm-10">
+                            <input type="password" class="form-control" asp-for="RePassword" name="RePassword" placeholder="RePassword">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPassword3" class="col-sm-2 control-label">Image</label>
+                        <div class="col-sm-10">
+                            <input type="file" name="files" asp-for="Image" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPassword3" class="col-sm-2 control-label">Role</label>
+                        <div class="col-sm-10">
+                            <select name="IsRole" asp-for="IsRole" class="form-control">
+                                <option value="A">Admin</option>
+                                <option value="U">User</option>
+                            </select>
+                        </div>
+                    </div>
+                </div><!-- /.box-body -->
+                <div class="box-footer">
+                    <button type="submit" class="btn btn-info pull-right">Register</button>
+                </div><!-- /.box-footer -->
+            </form>
+        </div><!-- /.box -->
+    </div>
+</div>
